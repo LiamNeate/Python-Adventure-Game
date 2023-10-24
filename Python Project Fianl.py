@@ -474,7 +474,7 @@ Welcome to the shop! Here you can spend money on potions or upgrade your gear wi
     def checkSave(self):
         if loadGameName ==  '':
             i=0
-            fileName = self.name + '.txt'
+            fileName = self.name + 'usrdata.txt'
             while True:
                 try:
                     f = open(fileName, 'r')
@@ -501,7 +501,7 @@ Welcome to the shop! Here you can spend money on potions or upgrade your gear wi
         #First writing the date to the file so the user knows when last edited
         f.write(saveData)
         f.close()
-        print('File saved as '+fileName)
+        print('File saved!')
         global loadGameName
         loadGameName = fileName
 
@@ -604,9 +604,9 @@ def loadGame():
     i=1
     print('Which adventurer are you? ')
     print('0). Return')
-    for name in glob.glob('*.txt'):
+    for name in glob.glob('*usrdata.txt'):
         print(str(i)+'). ', end='')
-        fileName = name[0:((len(name)-4))]
+        fileName = name[0:((len(name)-11))]
         print(fileName, end=' ')
         f = open(name, 'r')
         reading = f.read()
